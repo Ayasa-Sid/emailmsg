@@ -1,35 +1,26 @@
 pipeline{
     agent any
 
-    stages{
-        stage('compiler stage'){
-            step{
+            tools{
             withMaven(maven:'maven_3_8_6'){
-            sh 'mvn clean compiler'
-              }
-            }
 
-        }
-        stage('Testing stage'){
-           step{
-           withMaven(maven:'maven_3_8_5'){
-           sh 'mvn test'
-             }
+              }
+        stages{
+
+           stage('Checkout from github'){
+           steps{
+           checkout($class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:https://github.com/Ayasa-Sid/emailmsg.git]]])
 
            }
         }
-        stage('Deployment Stage'){
-            step{
-            withMaven(maven:'maven_3_8_4'){
-            sh 'mvn deploy'
+            stage('Build stage'){
+                steps{
+                  withMaven(maven:'maven_3_8_5')
+                    bat 'mvn clean install'
+                }
 
-               }
             }
-
-
         }
 
-
-
-
+    }
 }
