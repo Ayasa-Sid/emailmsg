@@ -9,14 +9,14 @@ pipeline{
 
                      stage('Checkout from github'){
                       steps{
-                          checkout($class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:https:'//github.com/Ayasa-Sid/emailmsg.git']]])
+                          checkout($class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:https:'//github.com/Ayasa-Sid/emailmsg.git']])
 
                        }
                      }
                       stage('Build stage'){
                       steps{
                            withMaven(maven:'maven_3_8_5')
-                              bat 'mvn clean install'
+                              bat 'maven clean install'
                            }
 
                       }
