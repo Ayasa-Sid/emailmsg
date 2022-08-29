@@ -4,23 +4,23 @@ pipeline{
             tools{
              maven 'maven_3_8_6'
 
-                  }
-                 stages{
+             }
+              stages{
 
                      stage('Checkout from github'){
-                      steps{
+                         steps{
                           checkout([$class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:'https://github.com/Ayasa-Sid/emailmsg']]])
 
-                       }
+                           }
                      }
                       stage('Build stage'){
-                      steps{
+                            steps{
                            withMaven(maven:'maven_3_8_5'){
                               bat 'maven clean install'
-                           }
+                               }
 
+                           }
                       }
-                }
 
              }
     }
