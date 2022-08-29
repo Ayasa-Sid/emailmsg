@@ -15,11 +15,11 @@ pipeline{
                      }
                       stage('Build stage'){
                             steps{
-                           withMaven(maven:'maven_3_8_5'){
+                              withMaven(maven:'maven_3_8_5'){
                               bat 'maven clean install'
                                }
 
-                           }
+                            }
                       }
 
              }
