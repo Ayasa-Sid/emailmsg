@@ -14,12 +14,11 @@ pipeline{
                            }
                      }
                       stage('Build stage'){
-                         withMaven(maven: 'maven_3_8_6'){
                              steps {
                                     bat 'set'
-                             }
+                              }
 
-                        }
+
                       }
               }
 
