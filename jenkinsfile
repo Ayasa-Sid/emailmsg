@@ -9,7 +9,7 @@ pipeline{
 
                      stage('Checkout from github'){
                          steps{
-                          checkout([$class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:'https://github.com/Ayasa-Sid/emailmsg']]])
+                          checkout([$class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:'https://github.com/Ayasa-Sid/emailmsg.git']]])
 
                            }
                      }
