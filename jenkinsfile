@@ -20,6 +20,16 @@ pipeline{
 
 
                       }
+                      stage('Build docker image'){
+                              steps {
+                                   docker{
+                                   image 'maven_3_8_6 '
+
+                                   }
+                              }
+
+
+                       }
               }
 
 
