@@ -17,21 +17,10 @@ pipeline{
                             steps{
                               withMaven(maven:'maven_3_8_6'){
                                  bat 'maven clean install'
-                                  }
+                              }
 
                             }
                       }
-                      stage("foo") {
-                              steps {
-                                 script {
-                                     try {
-                                            env.FILENAME = readFile 'output.txt'
-                                            echo "${env.FILENAME}"
-                                            }
-                                                  catch(Exception e) {
-                                                      //do something, e.g. echo 'File not found'
-                                                  }
-                                              }
-                        }
+
              }
     }
