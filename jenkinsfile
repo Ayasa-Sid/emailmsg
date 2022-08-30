@@ -14,11 +14,10 @@ pipeline{
                            }
                      }
                       stage('Build stage'){
-                           stage('Build') {
-                                       steps {
-                                           bat 'set'
-                                       }
-                           }
+                             steps {
+                                    bat 'set'
+                             }
+
 
                       }
               }
