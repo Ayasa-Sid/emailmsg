@@ -16,10 +16,17 @@ pipeline{
                       stage('Build stage'){
                              steps {
                                  script{
-                                 bat 'mvn clean package'
+                                 bat 'mvn clean package shade:shade'
                                  }
                              }
                       }
+//                       stage('Build docker image'){
+//                         steps{
+//                             script{
+//                                 bat''
+//                             }
+//                         }
+//                       }
 
 
               }
