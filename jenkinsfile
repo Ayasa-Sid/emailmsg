@@ -20,13 +20,13 @@ pipeline{
                                  }
                              }
                       }
-//                       stage('Build docker image'){
-//                         steps{
-//                             script{
-//                                 bat''
-//                             }
-//                         }
-//                       }
+                      stage('Build docker image'){
+                        steps{
+                            script{
+                                bat 'docker image build -t emailmsg:latest'
+                            }
+                        }
+                      }
 
 
               }
