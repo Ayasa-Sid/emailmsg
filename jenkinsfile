@@ -15,21 +15,11 @@ pipeline{
                      }
                       stage('Build stage'){
                              steps {
-                                    bat 'set'
-                              }
-
+                                           bat 'set'
+                                       }
+                           }
 
                       }
-                      stage('Build docker image'){
-                              steps {
-                                   docker{
-                                   image 'Gradle_7.5.1'
-
-                                   }
-                              }
-
-
-                       }
               }
 
 
