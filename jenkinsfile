@@ -21,9 +21,14 @@ pipeline{
                              }
                       }
                       stage('Build docker image'){
+                            agent{
+                                docker{
+                                    image 'maven_3_8_6'
+                                }
+                             }
                             steps{
                                 script{
-                                    bat 'docker image build -t emailmsg:latest'
+                                    bat 'mvn clean install'
                                 }
                             }
                       }
