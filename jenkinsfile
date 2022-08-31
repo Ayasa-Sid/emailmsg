@@ -15,11 +15,11 @@ pipeline{
                      }
                       stage('Build stage'){
                              steps {
-                                           bat 'set'
-                                       }
-                           }
-
+                                 bat 'set'
+                             }
                       }
+
+
               }
 
 
