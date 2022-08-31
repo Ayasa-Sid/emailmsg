@@ -21,10 +21,10 @@ pipeline{
                              }
                       }
                       stage('Docker Build'){
-                            agent any
                             steps{
-                                 bat 'docker build -t email_msg:latest'
-
+                                script{
+                                 bat 'docker build -t emailmsg:latest'
+                                }
                             }
                       }
 
