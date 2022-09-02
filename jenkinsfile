@@ -13,20 +13,14 @@ pipeline{
 
                            }
                      }
-                      stage('Build stage'){
+                      stage('Build maven'){
                              steps {
                                  script{
                                  bat 'mvn clean package shade:shade'
                                  }
                              }
                       }
-                      stage('Docker Build'){
-                            steps{
-                                script{
-                                 bat 'docker build -t emailmsg:latest'
-                                }
-                            }
-                      }
+
 
 
               }
