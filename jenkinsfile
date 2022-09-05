@@ -7,21 +7,13 @@ pipeline{
              }
               stages{
 
-                     stage('Checkout from github'){
+                     stage('Build maven'){
                          steps{
-                          checkout([$class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:'https://github.com/Ayasa-Sid/emailmsg.git']]])
-
+                          checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Ayasa-Sid/emailmsg.git']]])
+                            sh 'mvn clean install'
                            }
 
                      }
-//                       stage('Build maven'){
-//                              steps {
-//                                  script{
-//                                  bat 'mvn clean package shade:shade'
-//                                  }
-//                              }
-//                       }
-
 
 
               }
