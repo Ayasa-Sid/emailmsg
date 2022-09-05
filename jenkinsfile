@@ -14,12 +14,13 @@ pipeline{
                            }
 
                      }
-
-                     stage('Build') {
-                       steps {
-                              sh 'mvn -B -DskipTests clean package'
-                       }
-                     }
+//                       stage('Build maven'){
+//                              steps {
+//                                  script{
+//                                  bat 'mvn clean package shade:shade'
+//                                  }
+//                              }
+//                       }
 
 
 
