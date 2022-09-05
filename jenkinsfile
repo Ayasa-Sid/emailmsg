@@ -12,14 +12,14 @@ pipeline{
                           checkout([$class:'GitSCM',branches:[[name:'*/master']],extensions:[],userRemoteConfigs:[[url:'https://github.com/Ayasa-Sid/emailmsg.git']]])
 
                            }
+
                      }
-                      stage('Build maven'){
-                             steps {
-                                 script{
-                                 bat 'mvn clean package shade:shade'
-                                 }
-                             }
-                      }
+
+                     stage('Build') {
+                       steps {
+                              sh 'mvn -B -DskipTests clean package'
+                       }
+                     }
 
 
 
