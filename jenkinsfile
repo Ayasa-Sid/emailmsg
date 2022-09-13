@@ -11,8 +11,8 @@ pipeline{
                       stage('build mvn project') {
                          steps{
                              script{
-                             sh 'mvn clean package shade:shade'
-                                 }
+                              sh 'mvn clean package'
+                              }
                           }
 
                       }
