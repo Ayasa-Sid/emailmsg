@@ -3,16 +3,21 @@ pipeline{
     tools{ maven 'maven_3.8.6' }
               stages{
 
-                     stage('Build maven'){
+                     stage('checkout from git'){
                          steps{
                           checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Ayasa-Sid/emailmsg.git']]])
-                            sh 'mvn clean install'
                            }
-
                      }
+                      stage('build mvn project') {
+                         steps{
+                             script{
+                             sh 'mvn clean package shade:shade'
+                                 }
+                          }
 
+                      }
+               }
 
-              }
 
 
 }
